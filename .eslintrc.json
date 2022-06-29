@@ -1,0 +1,84 @@
+{
+  "extends": [
+    "react-app",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "arrow-spacing": "error",
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "space-before-blocks": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "curly": ["error", "all"],
+    "comma-dangle": ["warn", "always-multiline"],
+    "semi": [2, "never"],
+    "eol-last": ["error", "always"],
+    "indent": ["error", 2, {"SwitchCase":  1}],
+    "max-len": ["warn", {
+      "code": 120,
+      "tabWidth": 2,
+      "ignoreComments": false,
+      "ignoreTrailingComments": false,
+      // Ignore es6 import/export declarations
+      "ignorePattern": "(import|export)\\s.+\\sfrom\\s.+"
+    }],
+    "keyword-spacing": ["error", {
+      "after": true,
+      "before": true
+    }],
+    "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1, "maxBOF": 1 }],
+    "sort-keys": ["warn", "asc", { "natural": true, "minKeys": 5 }],
+    "sort-imports": ["warn", {
+      "ignoreCase": false,
+      "ignoreDeclarationSort": false,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+      "allowSeparatedGroups": false
+    }],
+    "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+    "padded-blocks": ["error", "never"],
+    // disable the base rule as it can report incorrect errors
+    "comma-spacing": "off",
+    "@typescript-eslint/comma-spacing": ["error"],
+    "@typescript-eslint/class-name-casing": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "singleline": {
+        "delimiter": "comma",
+        "requireLast": false
+      },
+      "multiline": {
+        "delimiter": "comma",
+        "requireLast": true
+      }
+    }],
+    "@typescript-eslint/member-ordering": ["warn", {
+      "default": [
+        "public-static-field",
+        "public-static-method",
+        "constructor",
+        "public-instance-field",
+        "public-instance-method",
+        "protected-static-field",
+        "protected-static-method",
+        "protected-instance-field",
+        "protected-instance-method",
+        "private-static-field",
+        "private-static-method",
+        "private-instance-field",
+        "private-instance-method"
+      ]
+    }],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  }
+}

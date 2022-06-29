@@ -1,0 +1,102 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks"
+import { Title } from "./Title"
+
+export const Template = ({children,  ...props}) => <Title {...props}>{children}</Title>
+
+<Meta title="components/Title" component={Title}/>
+
+# Title
+
+A title component with different `sizes`, `colors` and `font weight`
+
+Can be in `uppercase` and with `subtitle`
+
+<Canvas>
+  <Story
+    name="Title"
+    args={{
+      children: "Un super titre"
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Title"/>
+
+## Extra large title
+
+<Canvas isColumn>
+  <Story
+    name="Extra large primary"
+    args={{
+      children: "Un super titre extra large",
+      size: "extraLarge",
+      color: "primary"
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="With subtitle"
+    args={{
+      children: "Un super titre extra large",
+      size: "extraLarge",
+      color: "primary",
+      subtitle: "Avec sous-titre"
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Large
+
+<Canvas isColumn>
+  <Story
+    name="large"
+    args={{
+      children: "Un super titre large",
+      size: "large",
+      color: "primary"
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="large avec sous-titre"
+    args={{
+      children: "Un super titre large",
+      size: "large",
+      color: "primary",
+      subtitle: "Avec sous-titre"
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Medium
+
+<Canvas isColumn>
+  <Story
+    name="medium"
+    args={{
+      children: "Un super titre medium",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="medium with subtitle"
+    args={{
+      children: "Un super titre large",
+      subtitle: "Avec sous-titre"
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
