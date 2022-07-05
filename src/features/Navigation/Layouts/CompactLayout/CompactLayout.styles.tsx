@@ -8,6 +8,39 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 3rem;
+  flex-direction: column;
+`
+
+export const UserContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  max-width: 500px;
+      
+  h3 {
+  margin-bottom: .6rem;
+  }
+  
+  button {
+   background: #1a1a1a;
+   cursor: pointer;
+   border-radius: 50000px;
+   width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f0ece2;
+   box-shadow: ${props => props.theme.shadows.button};
+   transition: all 0.3s ease-in-out;
+   
+   &:hover {
+     box-shadow: ${props => props.theme.shadows.buttonHover};
+   }
+  }
 `
 
 export const CompactContainer = styled(motion.div).attrs({
@@ -32,7 +65,7 @@ export const CompactContainer = styled(motion.div).attrs({
     ${theme.medias.mobile} {
       padding: 0;
       box-shadow: none;
-      background: transparent;    }
-  `}
-  
+      background: transparent;    
+    }
+  `}: ${({ theme }) => theme.medias.mobile}
 `

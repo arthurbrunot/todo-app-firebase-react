@@ -35,14 +35,6 @@
       "before": true
     }],
     "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1, "maxBOF": 1 }],
-    "sort-keys": ["warn", "asc", { "natural": true, "minKeys": 5 }],
-    "sort-imports": ["warn", {
-      "ignoreCase": false,
-      "ignoreDeclarationSort": false,
-      "ignoreMemberSort": false,
-      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-      "allowSeparatedGroups": false
-    }],
     "quotes": ["error", "double", { "allowTemplateLiterals": true }],
     "padded-blocks": ["error", "never"],
     // disable the base rule as it can report incorrect errors

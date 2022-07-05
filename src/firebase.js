@@ -16,19 +16,24 @@ import {
   query,
   where,
 } from "firebase/firestore"
+
 const firebaseConfig = {
   apiKey: "AIzaSyDmwuSWTHzvQdoGMF1_RcKjl5wHo8UUedw",
   authDomain: "esgi-pwa-1f679.firebaseapp.com",
   projectId: "esgi-pwa-1f679",
   storageBucket: "esgi-pwa-1f679.appspot.com",
+  databaseURL: "https://esgi-pwa-1f679.firebaseio.com",
   messagingSenderId: "660073234559",
   appId: "1:660073234559:web:181d746218644bebfaff4a",
   measurementId: "G-H2716ZDXTB",
+  experimentalForceLongPolling: true,
 }
+
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 const db = getFirestore(app)
 const googleProvider = new GoogleAuthProvider()
+
 const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider)
@@ -91,3 +96,4 @@ export {
   sendPasswordReset,
   logout,
 }
+

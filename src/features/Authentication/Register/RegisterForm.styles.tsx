@@ -21,5 +21,3 @@ export const GoogleButton = styled.a``
 export const ErrorMessage = styled.p`
     color: red;
 `
-
-`

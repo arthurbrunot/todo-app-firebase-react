@@ -39,6 +39,18 @@ border-radius: 0.5rem;
     &:hover {
       background: green;
     }
+    
+    &:first-of-type {
+      background: transparent;
+      border: none;
+      color: red;
+    }
+  }
+  
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 `
 
@@ -52,22 +64,13 @@ export const AddTodoContainer = styled.div`
     width: 100%;
   }
   
-  input[type="text"] {
-    border: none;
-    background: #f0ece2;
-    padding: 1.4rem;
-    border-radius: 0.5rem;
-    width: 100%;
-    font-size: 1.5rem;
-    
-  }
   input[type="submit"] {
     outline: none;
     border: none;
     background: #1a1a1a;
     padding: 1.4rem 3rem;
     border-radius: 0.5rem;
-    width: auto;
+    width: 100%;
     color: white;
     font-size: 1.5rem;
     cursor: pointer;

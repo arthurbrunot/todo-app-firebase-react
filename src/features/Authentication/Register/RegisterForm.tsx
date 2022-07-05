@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import * as Styles from "./RegisterForm.styles"
 import {
-  auth, logInWithEmailAndPassword,
+  auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../../../firebase"
@@ -13,13 +13,20 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [ isRegisterLoading, setIsRegisterLoading ] = useState(false)
-  const [emailError, setEmailError] = useState("")
+  const [emailError] = useState("")
   const [name, setName] = useState("")
   const [user, loading] = useAuthState(auth)
-  const history = useLocation()
-  const register = () => {
+
+  const navigate = useNavigate()
+
+  const register = (name: string, email: string, password: string) => {
     if (!name) {alert("Please enter name")}
-    registerWithEmailAndPassword(name, email, password)
+    setIsRegisterLoading(true)
+    registerWithEmailAndPassword(name, email, password).catch(r => {
+      console.log(r)
+    }).then(() => (
+      navigate("/dashboard")
+    ))
   }
   useEffect(() => {
     if (loading) {return}
@@ -54,14 +61,14 @@ export const RegisterForm = () => {
               placeholder="Password"
             />
             <PrimaryButton
-              onClick={() => {register}}
+              onClick={() => register(name, email, password)}
               state={isRegisterLoading ? "loading" : "idle"}
             >
-              Connexion
+              Inscription
             </PrimaryButton>
             <SecondaryButton onClick={signInWithGoogle}>
-              <img src={"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png"} width={20} height={20}/>
-              Connexion avec Google
+              <img src={"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png"} width={20} height={20} alt={""}/>
+              Inscription avec Google
             </SecondaryButton>
 
           </Styles.FormContainer>

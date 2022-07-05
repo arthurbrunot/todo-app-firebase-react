@@ -3,15 +3,14 @@ import { Link, useNavigate } from "react-router-dom"
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../../../firebase"
 import * as Styles from "./LoginForm.styles"
 import { CompactLayout } from "../../Navigation"
-
 import { useAuthState } from "react-firebase-hooks/auth"
-import { Icon, PrimaryButton, SecondaryButton, TextInput } from "../../components"
+import { PrimaryButton, SecondaryButton, TextInput } from "../../components"
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [emailError, setEmailError] = useState("")
-  const [user, loading, error] = useAuthState(auth)
+  const [user, loading] = useAuthState(auth)
   const [ isLoginLoading, setIsLoginLoading ] = useState(false)
   const navigate = useNavigate()
   console.log(emailError)
@@ -24,7 +23,7 @@ export const LoginForm = () => {
       setIsLoginLoading(false)
       navigate("/dashboard")
     }
-  }, [user, loading])
+  }, [user, loading, navigate])
 
   return (
     <CompactLayout>
@@ -66,7 +65,9 @@ export const LoginForm = () => {
                         Connexion
           </PrimaryButton>
           <SecondaryButton onClick={signInWithGoogle}>
-            <img src={"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png"} width={20} height={20}/>
+            <img
+              /* eslint-disable-next-line max-len */
+              src={"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png"} width={20} height={20} alt={""}/>
             Connexion avec Google
           </SecondaryButton>
 

@@ -7,6 +7,7 @@ import {
 import { LoginForm } from "../Authentication"
 import { RegisterForm, Reset } from "../Authentication"
 import { Homepage } from "../Homepage"
+import { CompletedTodos } from "../CompletedTodosPage"
 
 export const Routes = () => {
   return (
@@ -16,6 +17,7 @@ export const Routes = () => {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/dashboard" element={<Homepage />} />
+        <Route path="/completed" element={<CompletedTodos />} />
       </IRoutes>
     </Router>
   )
