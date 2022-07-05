@@ -16,7 +16,7 @@ export const CompletedTodos = () => {
 
   useEffect(() => {
     if (loading) {return}
-    if (!user) {return navigate("/")}
+    if (!user) {return navigate("/login")}
     const fetchTodos = async () => {
       try {
         const q = query(collection(db, "todos"), where("userId", "==", user?.uid), where("completed", "==", true))

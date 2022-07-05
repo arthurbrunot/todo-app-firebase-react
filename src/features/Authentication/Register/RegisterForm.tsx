@@ -25,7 +25,7 @@ export const RegisterForm = () => {
     registerWithEmailAndPassword(name, email, password).catch(r => {
       console.log(r)
     }).then(() => (
-      navigate("/dashboard")
+      navigate("/")
     ))
   }
   useEffect(() => {

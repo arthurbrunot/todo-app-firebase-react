@@ -6,7 +6,7 @@ export const Navbar = () => {
   const location = useLocation()
   const paths = [
     {
-      path: "/dashboard",
+      path: "/",
       name: "En cours",
     },
     {

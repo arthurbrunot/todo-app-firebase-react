@@ -13,10 +13,10 @@ export const Routes = () => {
   return (
     <Router>
       <IRoutes>
-        <Route path="/" element={<LoginForm />}/>
+        <Route path="/login" element={<LoginForm />}/>
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/reset" element={<Reset />} />
-        <Route path="/dashboard" element={<Homepage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/completed" element={<CompletedTodos />} />
       </IRoutes>
     </Router>

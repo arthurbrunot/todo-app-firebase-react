@@ -21,7 +21,7 @@ export const LoginForm = () => {
     }
     if (user) {
       setIsLoginLoading(false)
-      navigate("/dashboard")
+      navigate("/")
     }
   }, [user, loading, navigate])
 

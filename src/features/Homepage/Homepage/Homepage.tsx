@@ -18,7 +18,7 @@ export const Homepage = () => {
 
   useEffect(() => {
     if (loading) {return}
-    if (!user) {return navigate("/")}
+    if (!user) {return navigate("/login")}
     const fetchTodos = async () => {
       try {
         const q = query(collection(db, "todos"), where("userId", "==", user?.uid), where("completed", "==", false))
@@ -78,7 +78,7 @@ export const Homepage = () => {
         </Styles.TodosContainer>
         <Styles.AddTodoContainer>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" placeholder="First name" {...register("name", { required: true, maxLength: 80 })} />
+            <input type="text" placeholder="Saisissez une tâche" {...register("name", { required: true, maxLength: 80 })} />
             <input type="submit" />
           </form>
         </Styles.AddTodoContainer>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import * as Styles from "./CompactLayout.styles"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth, logout } from "../../../../firebase"
